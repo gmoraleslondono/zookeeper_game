@@ -18,3 +18,16 @@ class Animal:
 
     def __str__(self):
         return f"{self.name}: hunger={self.hunger}, energy={self.energy}"
+
+
+class Lion(Animal):
+    def make_sound(self):
+        return f"{self.name} says ROAR!"
+
+class Monkey(Animal):
+    def make_sound(self):
+        return f"{self.name} says OOH OOH AAH AAH!"
+
+class Cow(Animal):
+    def make_sound(self):
+        return f"{self.name} says MUU!"
