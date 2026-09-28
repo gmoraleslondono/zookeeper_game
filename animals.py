@@ -5,12 +5,17 @@ class Animal:
         self.energy = energy
 
     def eat(self, animal):
+        # hunger = -30
         print(f"{animal} eat!!!!")
 
     def sleep(self, animal):
+        # energy = +40
+        # hunger = +10
         print(f"{animal} sleep!!!")
 
     def play(self, animal):
+        # hunger = +15
+        # energy = -20
         print(f"{animal} play")
 
     def make_sound(self, animal):
