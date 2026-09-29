@@ -8,21 +8,18 @@ class Animal:
         if self.hunger == 0:
             raise ValueError(f"{self.name} is full and doesn't want to eat!")
         self.hunger = max(0 , self.hunger - 30) # min 0
-        print(f"{self.name} eat!!!!")
 
     def sleep(self):
         if self.energy == 100:
             raise ValueError(f"{self.name} is not tired!")
         self.energy = min(100, self.energy + 40) # max 100
         self.hunger = min(100, self.hunger + 10) # max 100
-        print(f"{self.name} sleep!!!")
 
     def play(self):
         if self.energy < 20:
             raise ValueError(f"{self.name} is too tired to play!")
         self.energy = max(0, self.energy - 20) # min 0
         self.hunger = min(100, self.hunger + 15) # max 100
-        print(f"{self.name} play")
 
     def make_sound(self):
         return f"{self.name} makes a sound!!!"
