@@ -27,6 +27,11 @@ class Animal:
     def make_sound(self):
         return f"{self.name} makes a sound!!!"
 
+    # An animal waiting gets hungrier and more tired
+    def wait(self):
+        self.hunger = min(100, self.hunger + 5)
+        self.energy = max(0, self.energy - 5)
+
     def __str__(self):
         return f"{self.name}: hunger={self.hunger}, energy={self.energy}"
 
