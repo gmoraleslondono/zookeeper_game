@@ -3,7 +3,7 @@ class Zoo:
         self.zookeeper = zookeeper
         self.animals = animals if animals is not None else []
 
-    def add_animals(self, animal):
+    def add_animal(self, animal):
         self.animals.append(animal)
 
     def pass_time(self):
