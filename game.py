@@ -5,7 +5,14 @@ def show_status(zoo):
 
 def show_menu():
     print("Hi dear zookeeper, what do you want to do today? ")
-    return input("(1)Feed, (2)Play, (3)Send to sleep, (4)Listen, (5)Buy food, (6)Rest, (7)Quit: ")
+    text = input("(1)Feed, (2)Play, (3)Send to sleep, (4)Listen, (5)Buy food, (6)Rest, (7)Quit: ")
+
+    if not text.isdigit():
+        raise ValueError("You should type a number.")
+
+    number = int(text)
+
+    return number
 
 def choose_animal(zoo):
     for position, animal in enumerate(zoo.animals, start=1):
