@@ -34,15 +34,15 @@ def run(zoo):
     run = True
 
     while run == True:
-        show_status(zoo)
-        choice = show_menu()
-
-        if choice == 7:
-            print("Game over! Goodbye 👋 ")
-            run = False
-            continue
-
         try:
+            show_status(zoo)
+            choice = show_menu()
+
+            if choice == 7:
+                print("Game over! Goodbye 👋 ")
+                run = False
+                continue
+
             #(1)Feed, (2)Play, (3)Send to sleep, (4)Listen, (5)Buy food, (6)Rest
             if choice == 1:
                 animal = choose_animal(zoo)
