@@ -55,7 +55,8 @@ def run(zoo):
                 zoo.zookeeper.send_sleep(animal)
             elif choice == 4:
                 animal = choose_animal(zoo)
-                zoo.zookeeper.listen(animal)
+                sound = zoo.zookeeper.listen(animal)
+                print(sound)
             elif choice == 5:
                 zoo.zookeeper.buy_food()
             elif choice == 6:
@@ -68,6 +69,7 @@ def run(zoo):
 
         except ValueError as error:
             print(error)
+            continue
 
         message = zoo.check_game_over()
         if message is not None:
