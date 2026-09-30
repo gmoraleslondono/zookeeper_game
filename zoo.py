@@ -18,6 +18,8 @@ class Zoo:
         for animal in self.animals:
             if animal.hunger >= 100:
                 return f"{animal.name} ran away. Game over!"
+            if animal.energy <= 0:
+                return f"{animal.name} got sick. Game over!"
         # If food is 0 and coins less than 5 -> LOOSE
         if self.zookeeper.food == 0 and self.zookeeper.coins < 5:
             return "No food and no coins. Game over!"
