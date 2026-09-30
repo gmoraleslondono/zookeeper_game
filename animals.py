@@ -1,5 +1,5 @@
 class Animal:
-    def __init__(self, name, hunger=50, energy=50):
+    def __init__(self, name, hunger=45, energy=60):
         self.name = name
         self.hunger = hunger
         self.energy = energy
@@ -7,30 +7,53 @@ class Animal:
     def eat(self):
         if self.hunger == 0:
             raise ValueError(f"{self.name} is full and doesn't want to eat!")
-        self.hunger = max(0 , self.hunger - 30) # min 0
+        self.hunger = max(0, self.hunger - 40) # min 0
 
     def sleep(self):
         if self.energy == 100:
             raise ValueError(f"{self.name} is not tired!")
-        self.energy = min(100, self.energy + 40) # max 100
+        self.energy = min(100, self.energy + 50) # max 100
         self.hunger = min(100, self.hunger + 10) # max 100
 
     def play(self):
-        if self.energy < 20:
+        if self.energy < 35:
             raise ValueError(f"{self.name} is too tired to play!")
         self.energy = max(0, self.energy - 20) # min 0
-        self.hunger = min(100, self.hunger + 15) # max 100
+        self.hunger = min(100, self.hunger + 12) # max 100
 
     def make_sound(self):
         return f"{self.name} makes a sound!!!"
 
     # An animal waiting gets hungrier and more tired
     def wait(self):
-        self.hunger = min(100, self.hunger + 5)
-        self.energy = max(0, self.energy - 5)
+        self.hunger = min(100, self.hunger + 8)
+        self.energy = max(0, self.energy - 8)
+
+    def hunger_mood(self):
+        if self.hunger >= 80:
+            return "starving"
+        if self.hunger >= 55:
+            return "hungry"
+        if self.hunger >= 25:
+            return "ok"
+        if self.hunger == 0:
+            return "full"
+        return "satisfied"
+
+    def energy_mood(self):
+        if self.energy <= 20:
+            return "exhausted"
+        if self.energy <= 45:
+            return "tired"
+        if self.energy <= 75:
+            return "ok"
+        return "lively"
 
     def __str__(self):
-        return f"{self.name}: hunger={self.hunger}, energy={self.energy}"
+        return (
+            f"{self.name}: hunger={self.hunger} ({self.hunger_mood()}), "
+            f"energy={self.energy} ({self.energy_mood()})"
+        )
 
 
 class Lion(Animal):
@@ -44,8 +67,3 @@ class Monkey(Animal):
 class Cow(Animal):
     def make_sound(self):
         return f"{self.name} says MOO!"
-
-class Fox(Animal):
-    def make_sound(self):
-        return f"{self.name} says Gering-ding-ding-ding-dingeringeding!"
-

@@ -77,7 +77,9 @@ def run(zoo):
                 print(" ")
                 print(message)
             elif choice == 6:
-                zoo.zookeeper.rest()
+                message = zoo.zookeeper.rest()
+                print(" ")
+                print(message)
             else:
                 print("Invalid option")
                 continue

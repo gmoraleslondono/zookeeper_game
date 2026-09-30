@@ -18,13 +18,16 @@ You have limited energy, so some rest is needed too.
 You have limited coins to buy food, use them wisely.
 
 When you win:
-- You get 100 points from taking care of the animals in the Zoo.
+- Your score reaches 100.
 
 When you lose:
-- An animal gets so hungry that it runs away from the zoo (hunger = 100).
-- You run out of food (food = 0) and don't have enough coins to buy more (coins < 5).
+- An animal gets so hungry that it runs away (hunger = 100).
+- An animal gets so tired that it collapses (energy = 0).
+- You run out of food and can't afford more (food = 0 and coins < 8).
 
-NOTE: every action during the game makes the animals more tired and hungrier.
+NOTE: every action makes all the animals hungrier (+8) and more tired (-8 energy).
+Feeding earns the most points. Playing earns the most coins.
+Sleeping restores an animal, but they wake up hungrier.
 """)
 
 user_name = input("What is your name?: ")
