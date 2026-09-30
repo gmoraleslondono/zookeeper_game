@@ -1,10 +1,15 @@
 def show_status(zoo):
+    print(" ")
+    print("-----------------------------------------------")
     print(zoo.zookeeper)
+    print("-----------------------------------------------")
     for animal in zoo.animals:
         print(animal)
+    print("--------------------------------")
 
-def show_menu():
-    print("Hi dear zookeeper, what do you want to do today? ")
+def show_menu(zoo):
+    print(" ")
+    print(f"Hi {zoo.zookeeper.name} what do you want to do? ")
     text = input("(1)Feed, (2)Play, (3)Send to sleep, (4)Listen, (5)Buy food, (6)Rest, (7)Quit: ")
 
     if not text.isdigit():
@@ -15,6 +20,7 @@ def show_menu():
     return number
 
 def choose_animal(zoo):
+    print(" ")
     for position, animal in enumerate(zoo.animals, start=1):
         print(f"{position}. {animal}")
 
@@ -36,29 +42,40 @@ def run(zoo):
     while run == True:
         try:
             show_status(zoo)
-            choice = show_menu()
+            choice = show_menu(zoo)
 
             if choice == 7:
+                print("--------------------------------")
                 print("Game over! Goodbye 👋 ")
+                print("--------------------------------")
                 run = False
                 continue
 
             #(1)Feed, (2)Play, (3)Send to sleep, (4)Listen, (5)Buy food, (6)Rest
             if choice == 1:
                 animal = choose_animal(zoo)
-                zoo.zookeeper.feed(animal)
+                message = zoo.zookeeper.feed(animal)
+                print(" ")
+                print(message)
             elif choice == 2:
                 animal = choose_animal(zoo)
-                zoo.zookeeper.play(animal)
+                message = zoo.zookeeper.play(animal)
+                print(" ")
+                print(message)
             elif choice == 3:
                 animal = choose_animal(zoo)
-                zoo.zookeeper.send_sleep(animal)
+                message = zoo.zookeeper.send_sleep(animal)
+                print(" ")
+                print(message)
             elif choice == 4:
                 animal = choose_animal(zoo)
                 sound = zoo.zookeeper.listen(animal)
+                print(" ")
                 print(sound)
             elif choice == 5:
-                zoo.zookeeper.buy_food()
+                message = zoo.zookeeper.buy_food()
+                print(" ")
+                print(message)
             elif choice == 6:
                 zoo.zookeeper.rest()
             else:

@@ -35,6 +35,7 @@ class Zookeeper():
         self.food -= 1
         self.gain_points(10)
         self.gain_coins(5)
+        return f"{animal.name} eats! +10 points, +5 coins"
 
     def play(self, animal):
         if self.energy < 10:
@@ -43,6 +44,7 @@ class Zookeeper():
         self.spend_energy(10)
         self.gain_points(8)
         self.gain_coins(3)
+        return f"{self.name} plays with {animal.name}! +8 points, +3 coins"
 
     def send_sleep(self, animal):
         if self.energy < 5:
@@ -51,6 +53,7 @@ class Zookeeper():
         self.spend_energy(5)
         self.gain_points(5)
         self.gain_coins(2)
+        return f"{animal.name} goes to sleep! +5 points, +2 coins"
 
     def listen(self, animal):
         self.spend_energy(1)
@@ -62,9 +65,11 @@ class Zookeeper():
     def buy_food(self):
         self.spend_coins(5)
         self.food += 1
+        return f"{self.name} buys food. -5 coins, +1 food"
 
     def rest(self):
         self.gain_energy(30)
+        return f"{self.name} takes a break and feels refreshed! +30 energy"
 
     def __str__(self):
         return f"{self.name}: energy={self.energy}, coins={self.coins}, score={self.score}, food={self.food}"
