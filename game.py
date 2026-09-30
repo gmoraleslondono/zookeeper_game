@@ -30,6 +30,47 @@ def choose_animal(zoo):
 
     return zoo.animals[number-1]
 
-def run():
-    # it should run the program and make the validations
-    pass
+def run(zoo):
+    run = True
+
+    while run == True:
+        show_status(zoo)
+        choice = show_menu()
+
+        if choice == 7:
+            print("Game over! Goodbye 👋 ")
+            run = False
+            continue
+
+        try:
+            #(1)Feed, (2)Play, (3)Send to sleep, (4)Listen, (5)Buy food, (6)Rest
+            if choice == 1:
+                animal = choose_animal(zoo)
+                zoo.zookeeper.feed(animal)
+            elif choice == 2:
+                animal = choose_animal(zoo)
+                zoo.zookeeper.play(animal)
+            elif choice == 3:
+                animal = choose_animal(zoo)
+                zoo.zookeeper.send_sleep(animal)
+            elif choice == 4:
+                animal = choose_animal(zoo)
+                zoo.zookeeper.listen(animal)
+            elif choice == 5:
+                zoo.zookeeper.buy_food()
+            elif choice == 6:
+                zoo.zookeeper.rest()
+            else:
+                print("Invalid option")
+                continue
+
+            zoo.pass_time()
+
+        except ValueError as error:
+            print(error)
+
+        message = zoo.check_game_over()
+        if message is not None:
+            print(message)
+            run = False
+
