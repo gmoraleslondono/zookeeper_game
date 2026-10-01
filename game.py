@@ -95,8 +95,10 @@ def run(zoo):
 
         message = zoo.check_game_over()
         if message is not None:
+            print()
             print("--------------------------------------------")
             print(message)
             print("--------------------------------------------")
+            print()
             run = False
 
