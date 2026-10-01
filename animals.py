@@ -6,17 +6,20 @@ class Animal:
 
     def eat(self):
         if self.hunger == 0:
+            print()
             raise ValueError(f"{self.name} is full and doesn't want to eat!")
         self.hunger = max(0, self.hunger - 40) # min 0
 
     def sleep(self):
         if self.energy == 100:
+            print()
             raise ValueError(f"{self.name} is not tired!")
         self.energy = min(100, self.energy + 50) # max 100
         self.hunger = min(100, self.hunger + 10) # max 100
 
     def play(self):
         if self.energy < 35:
+            print()
             raise ValueError(f"{self.name} is too tired to play!")
         self.energy = max(0, self.energy - 20) # min 0
         self.hunger = min(100, self.hunger + 12) # max 100
