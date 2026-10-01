@@ -11,26 +11,14 @@ print("""
 *                              *
 ********************************
 
-Instructions:
-You are a zookeeper. Choose your name and start playing.
-The animals in the Zoo need to be fed, played with, and left to rest.
-You have limited energy, so some rest is needed too.
-You have limited coins to buy food, use them wisely.
+Look after 🦁 Leo the Lion, 🐵 Momo the Monkey, and 🐮 Bella the Cow until your score reaches 100.
 
-When you win:
-- Your score reaches 100.
-
-When you lose:
-- An animal gets so hungry that it runs away (hunger = 100).
-- An animal gets so tired that it collapses (energy = 0).
-- You run out of food and can't afford more (food = 0 and coins < 8).
-
-NOTE: every action makes all the animals hungrier (+8) and more tired (-8 energy).
-Feeding earns the most points. Playing earns the most coins.
-Sleeping restores an animal, but they wake up hungrier.
+Each action makes every animal hungrier (+8) and more tired (-8).
+They run away at hunger 100, and collapse at energy 0.
+With no food and fewer than 8 coins, the game ends.
 """)
 
-user_name = input("What is your name?: ")
+user_name = input("Pick your zookeeper name: ")
 
 zookeeper = Zookeeper(user_name)
 leo = Lion("Leo")
