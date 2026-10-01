@@ -50,11 +50,17 @@ class Animal:
         return "lively"
 
     def __str__(self):
+        emojis = {
+            "Lion": "🦁",
+            "Monkey": "🐵",
+            "Cow": "🐮",
+        }
+        emoji = emojis.get(self.__class__.__name__, "")
         name = self.name.ljust(5)
         hunger = str(self.hunger).rjust(3)
         hunger_mood = self.hunger_mood().ljust(10)
         energy = str(self.energy).rjust(3)
-        return f"{name} hunger {hunger}  {hunger_mood} energy {energy}  {self.energy_mood()}"
+        return f"{emoji} {name} hunger {hunger}  {hunger_mood} energy {energy}  {self.energy_mood()}"
 
 
 class Lion(Animal):
