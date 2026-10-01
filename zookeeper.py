@@ -78,6 +78,6 @@ class Zookeeper():
 
     def __str__(self):
         return (
-            f"{self.name}: energy={self.energy}, coins={self.coins}, "
-            f"score={self.score}/{WIN_SCORE}, food={self.food}"
+            f"🙂 {self.name}   energy {self.energy}   coins {self.coins}   "
+            f"food {self.food}   score {self.score}/{WIN_SCORE}"
         )
