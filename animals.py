@@ -50,10 +50,11 @@ class Animal:
         return "lively"
 
     def __str__(self):
-        return (
-            f"{self.name}: hunger={self.hunger} ({self.hunger_mood()}), "
-            f"energy={self.energy} ({self.energy_mood()})"
-        )
+        name = self.name.ljust(5)
+        hunger = str(self.hunger).rjust(3)
+        hunger_mood = self.hunger_mood().ljust(10)
+        energy = str(self.energy).rjust(3)
+        return f"{name} hunger {hunger}  {hunger_mood} energy {energy}  {self.energy_mood()}"
 
 
 class Lion(Animal):
