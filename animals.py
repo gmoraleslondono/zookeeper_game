@@ -18,9 +18,6 @@ class Animal:
         self.hunger = min(100, self.hunger + 10) # max 100
 
     def play(self):
-        if self.energy < 35:
-            print()
-            raise ValueError(f"{self.name} is too tired to play!")
         self.energy = max(0, self.energy - 20) # min 0
         self.hunger = min(100, self.hunger + 12) # max 100
 
