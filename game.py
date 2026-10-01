@@ -7,10 +7,11 @@ def show_status(zoo):
 
 def show_menu():
     print()
-    print("1 Feed   2 Play   3 Sleep   4 Listen   5 Buy food   6 Rest   7 Quit")
+    print("1 Feed   2 Play   3 put to sleep   4 Listen   5 Buy food   6 Rest   7 Quit")
     text = input("> ")
 
     if not text.isdigit():
+        print()
         raise ValueError("Type a number from 1 to 7.")
 
     number = int(text)
@@ -18,19 +19,22 @@ def show_menu():
     return number
 
 def choose_animal(zoo):
-    print(" ")
+    print()
+    print("Who is getting a visit? Pick a number:")
     for position, animal in enumerate(zoo.animals, start=1):
-        print(f"{position}. {animal}")
+        print(f"{position} {animal.name}   ", end= " ")
 
-    text = input("What animal do you want to visit (write a number): ")
+    text = input("\n> ")
 
     if not text.isdigit():
-        raise ValueError("You should type a number.")
+        print()
+        raise ValueError("Type a number from 1 to 3.")
 
     number = int(text)
 
     if number > len(zoo.animals) or number <= 0:
-        raise ValueError("You should choose an animal from the list.")
+        print()
+        raise ValueError("Choose an animal from the list by typing a number.")
 
     return zoo.animals[number-1]
 
@@ -40,7 +44,7 @@ def run(zoo):
     while run == True:
         try:
             show_status(zoo)
-            choice = show_menu(zoo)
+            choice = show_menu()
 
             if choice == 7:
                 print("--------------------------------")
@@ -79,7 +83,8 @@ def run(zoo):
                 print(" ")
                 print(message)
             else:
-                print("Invalid option")
+                print()
+                print("Invalid option.")
                 continue
 
             zoo.pass_time()
@@ -90,6 +95,8 @@ def run(zoo):
 
         message = zoo.check_game_over()
         if message is not None:
+            print("--------------------------------------------")
             print(message)
+            print("--------------------------------------------")
             run = False
 
