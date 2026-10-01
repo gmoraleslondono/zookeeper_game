@@ -42,7 +42,7 @@ Each turn the game shows your status and the status of every animal, then asks w
 | 6      | Rest                    | nothing             | 40 energy (up to 100)  |
 | 7      | Quit                    | —                   | ends the game          |
 
-Feeding is the best way to score. Playing is the best way to earn coins. A meal fills an animal a lot (`-40` hunger). Play tires them out (`-20` energy, `+12` hunger) and they need at least 35 energy to join in. Sleep restores 50 energy, and they wake up a little hungrier (`+10` hunger).
+Feeding is the best way to score. Playing is the best way to earn coins. A meal fills an animal a lot (`-40` hunger). Play tires them out (`-20` energy, `+12` hunger). Sleep restores 50 energy, and they wake up a little hungrier (`+10` hunger).
 
 After every action except Quit, time passes. Every animal gets hungrier (`+8` hunger) and more tired (`-8` energy).
 
@@ -51,9 +51,9 @@ You start with:
 - **Zookeeper:** 80 energy, 16 coins, 0 points, 3 food
 - **Each animal:** 45 hunger, 60 energy
 
-Hunger and energy stay between 0 and 100. The status line shows a mood as well as the number: hunger goes from satisfied to ok, hungry, and starving; energy goes from lively to ok, tired, and exhausted. Your score is shown against the goal, like `score=40/100`.
+Hunger and energy stay between 0 and 100. The status line shows a mood as well as the number: hunger goes from satisfied to ok, hungry, and starving; energy goes from lively to ok, tired, and exhausted. Your score is shown against the goal, like `score 40/100`.
 
-Some actions are refused if they do not make sense. For example, a full animal will not eat, a tired animal will not play, and you cannot buy food without 8 coins. The game prints the reason and lets you try again.
+Some actions are refused if they do not make sense. For example, a full animal will not eat, and you cannot buy food without 8 coins. The game prints the reason and lets you try again.
 
 ## Winning and losing
 
