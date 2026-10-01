@@ -15,12 +15,12 @@ class Zoo:
 
     def check_game_over(self):
         if self.zookeeper.score >= WIN_SCORE:
-            return f"You win! The zoo is thriving. Score: {self.zookeeper.score}."
+            return f"You win! The zoo is thriving 🎉 Score: {self.zookeeper.score}."
         for animal in self.animals:
             if animal.hunger >= 100:
-                return f"{animal.name} was too hungry and ran away. Game over!"
+                return f"{animal.name} was too hungry and ran away  😱  Game over!"
             if animal.energy <= 0:
-                return f"{animal.name} collapsed from exhaustion. Game over!"
+                return f"{animal.name} collapsed from exhaustion  💔  Game over!"
         if self.zookeeper.food == 0 and self.zookeeper.coins < self.zookeeper.FOOD_PRICE:
-            return "No food and not enough coins to buy more. Game over!"
+            return "No food and not enough coins to buy more  ☹️  Game over!"
         return None
