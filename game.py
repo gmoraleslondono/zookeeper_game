@@ -1,19 +1,17 @@
 def show_status(zoo):
-    print(" ")
-    print("-----------------------------------------------")
+    print()
     print(zoo.zookeeper)
-    print("-----------------------------------------------")
+    print()
     for animal in zoo.animals:
         print(animal)
-    print("--------------------------------")
 
-def show_menu(zoo):
-    print(" ")
-    print(f"Hi {zoo.zookeeper.name} what do you want to do? ")
-    text = input("(1)Feed, (2)Play, (3)Send to sleep, (4)Listen, (5)Buy food, (6)Rest, (7)Quit: ")
+def show_menu():
+    print()
+    print("1 Feed   2 Play   3 Sleep   4 Listen   5 Buy food   6 Rest   7 Quit")
+    text = input("> ")
 
     if not text.isdigit():
-        raise ValueError("You should type a number.")
+        raise ValueError("Type a number from 1 to 7.")
 
     number = int(text)
 
