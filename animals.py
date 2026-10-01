@@ -1,3 +1,5 @@
+import colors
+
 class Animal:
     def __init__(self, name, hunger=45, energy=60):
         self.name = name
@@ -7,13 +9,13 @@ class Animal:
     def eat(self):
         if self.hunger == 0:
             print()
-            raise ValueError(f"{self.name} is full and doesn't want to eat!")
+            raise ValueError(f"{colors.RED}{self.name} is full and doesn't want to eat!{colors.RESET}")
         self.hunger = max(0, self.hunger - 40) # min 0
 
     def sleep(self):
         if self.energy == 100:
             print()
-            raise ValueError(f"{self.name} is not tired!")
+            raise ValueError(f"{colors.RED}{self.name} is not tired!{colors.RESET}")
         self.energy = min(100, self.energy + 50) # max 100
         self.hunger = min(100, self.hunger + 10) # max 100
 
@@ -22,7 +24,7 @@ class Animal:
         self.hunger = min(100, self.hunger + 12) # max 100
 
     def make_sound(self):
-        return f"{self.name} makes a sound!!!"
+        return f"{colors.YELLOW}{self.name} makes a sound!!!{colors.RESET}"
 
     # An animal waiting gets hungrier and more tired
     def wait(self):
@@ -65,12 +67,12 @@ class Animal:
 
 class Lion(Animal):
     def make_sound(self):
-        return f"{self.name} says ROAR!"
+        return f"{colors.YELLOW}{self.name} says ROAR!{colors.RESET}"
 
 class Monkey(Animal):
     def make_sound(self):
-        return f"{self.name} says OOH-OOH AH-AH!"
+        return f"{colors.YELLOW}{self.name} says OOH-OOH AH-AH!{colors.RESET}"
 
 class Cow(Animal):
     def make_sound(self):
-        return f"{self.name} says MOO!"
+        return f"{colors.YELLOW}{self.name} says MOO!{colors.RESET}"

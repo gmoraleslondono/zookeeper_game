@@ -1,10 +1,11 @@
+import colors
 from animals import Lion, Monkey, Cow
 from zookeeper import Zookeeper
 from zoo import Zoo
 from game import run
 
 
-print("""
+print(f"""{colors.GREEN}
 ********************************
 *                              *
 *           Zoo Game           *
@@ -16,7 +17,7 @@ Look after 🦁 Leo the Lion, 🐵 Momo the Monkey, and 🐮 Bella the Cow until
 Each action makes every animal hungrier (+8) and more tired (-8).
 They run away at hunger 100, and collapse at energy 0.
 With no food and fewer than 8 coins, the game ends.
-""")
+{colors.RESET}""")
 
 user_name = input("Pick your zookeeper name: ")
 

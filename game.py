@@ -1,3 +1,5 @@
+import colors
+
 def show_status(zoo):
     print()
     print(zoo.zookeeper)
@@ -12,7 +14,7 @@ def show_menu():
 
     if not text.isdigit():
         print()
-        raise ValueError("Type a number from 1 to 7.")
+        raise ValueError(f"{colors.RED}Type a number from 1 to 7.{colors.RESET}")
 
     number = int(text)
 
@@ -28,13 +30,13 @@ def choose_animal(zoo):
 
     if not text.isdigit():
         print()
-        raise ValueError("Type a number from 1 to 3.")
+        raise ValueError(f"{colors.RED}Type a number from 1 to 3.{colors.RESET}")
 
     number = int(text)
 
     if number > len(zoo.animals) or number <= 0:
         print()
-        raise ValueError("Choose an animal from the list by typing a number.")
+        raise ValueError(f"{colors.RED}Choose an animal from the list by typing a number.{colors.RESET}")
 
     return zoo.animals[number-1]
 
@@ -47,9 +49,9 @@ def run(zoo):
             choice = show_menu()
 
             if choice == 7:
-                print("--------------------------------")
-                print("Game over! Goodbye 👋 ")
-                print("--------------------------------")
+                print(f"{colors.GREEN}--------------------------------{colors.RESET}")
+                print(f"{colors.GREEN}Game over! Goodbye 👋 {colors.RESET}")
+                print(f"{colors.GREEN}--------------------------------{colors.RESET}")
                 run = False
                 continue
 
@@ -84,21 +86,21 @@ def run(zoo):
                 print(message)
             else:
                 print()
-                print("Invalid option.")
+                print(f"{colors.RED}Type a number from 1 to 7.{colors.RESET}")
                 continue
 
             zoo.pass_time()
 
         except ValueError as error:
-            print(error)
+            print(f"{colors.RED}{error}{colors.RESET}")
             continue
 
         message = zoo.check_game_over()
         if message is not None:
             print()
-            print("--------------------------------------------")
+            print(f"{colors.GREEN}--------------------------------------------------------{colors.RESET}")
             print(message)
-            print("--------------------------------------------")
+            print(f"{colors.GREEN}--------------------------------------------------------{colors.RESET}")
             print()
             run = False
 
