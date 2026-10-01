@@ -24,7 +24,7 @@ class Animal:
         self.hunger = min(100, self.hunger + 12) # max 100
 
     def make_sound(self):
-        return f"{colors.YELLOW}{self.name} makes a sound!!!{colors.RESET}"
+        return f"{self.name} makes a sound!!!"
 
     # An animal waiting gets hungrier and more tired
     def wait(self):
@@ -67,12 +67,12 @@ class Animal:
 
 class Lion(Animal):
     def make_sound(self):
-        return f"{colors.YELLOW}{self.name} says ROAR!{colors.RESET}"
+        return f"{self.name} says ROAR!"
 
 class Monkey(Animal):
     def make_sound(self):
-        return f"{colors.YELLOW}{self.name} says OOH-OOH AH-AH!{colors.RESET}"
+        return f"{self.name} says OOH-OOH AH-AH!"
 
 class Cow(Animal):
     def make_sound(self):
-        return f"{colors.YELLOW}{self.name} says MOO!{colors.RESET}"
+        return f"{self.name} says MOO!"

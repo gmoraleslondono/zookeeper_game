@@ -59,7 +59,7 @@ class Zookeeper():
         self.spend_energy(8)
         self.gain_points(10)
         self.gain_coins(2)
-        return f"{animal.name} goes to sleep and will wake up hungrier. +10 points, +2 coins"
+        return f"{colors.YELLOW}{animal.name} goes to sleep and will wake up hungrier. +10 points, +2 coins{colors.RESET}"
 
     def listen(self, animal):
         self.spend_energy(2)
@@ -75,7 +75,7 @@ class Zookeeper():
 
     def rest(self):
         self.gain_energy(40)
-        return f"{self.name} takes a break and feels refreshed! +40 energy"
+        return f"{colors.YELLOW}{self.name} takes a break and feels refreshed! +40 energy{colors.RESET}"
 
     def __str__(self):
         return (
